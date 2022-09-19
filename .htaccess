@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+
+    Options +FollowSymLinks
+    RewriteEngine on
+
+    # Send request via index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L]
+    
+    php_value max_input_vars 10000
+    php_value suhosin.get.max_vars 10000
+    php_value suhosin.post.max_vars 10000
+    php_value suhosin.request.max_vars 10000
+
+</IfModule>
+
+
+<IfModule mod_headers.c>
+<FilesMatch ".(js|css|xml|gz|html)$">
+Header append Vary: Accept-Encoding
+</FilesMatch>
+</IfModule>

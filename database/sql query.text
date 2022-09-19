@@ -1,0 +1,10 @@
+
+// get duplicate data in `partytransaction` table
+SELECT * FROM `partytransaction` WHERE party_code='0019' AND trash=0 AND remark NOT IN ('sale_return', 'transaction', 'sale_damage') AND relation IN (SELECT voucher_no FROM `saprecords` WHERE party_code='0019' AND trash=0 AND status='sale' AND voucher_no IN (SELECT relation FROM `partytransaction` WHERE party_code='0019' AND trash=0 AND remark NOT IN ('sale_return', 'transaction') GROUP BY relation HAVING COUNT(*) > 1 ) ); 
+
+// get duplicate data in `saprecords` table
+SELECT * FROM `saprecords` WHERE party_code='0019' AND trash=0 AND status='sale' AND voucher_no IN (SELECT relation FROM `partytransaction` WHERE party_code='0019' AND trash=0 AND remark NOT IN ('sale_return', 'transaction', 'sale_damage') GROUP BY relation HAVING COUNT(*) > 1 );
+
+
+
+

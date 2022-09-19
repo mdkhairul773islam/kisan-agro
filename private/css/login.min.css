@@ -1,0 +1,74 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background:url(../images/circles-light.png);
+    font-family:'Roboto',sans-serif;
+}
+.container {
+    justify-content:center;
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+}
+form.login-form {
+    box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
+    overflow:hidden;
+    max-width:400px;
+    width:100%;
+    background:#fff;
+}
+.form-head {
+    background:#1976D2;
+    line-height:64px;
+    height:64px;
+    padding:0 15px;
+}
+.form-head h3 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+}
+.form-input {padding:15px;}
+.form-input .form-group {
+    margin:10px 0;
+}
+.form-input input[type='text'],.form-input input[type='password'],.form-input input[type='submit'] {
+    border:1px solid #ccc;
+    line-height:40px;
+    width:100%;
+    height:40px;
+    padding:0 8px;
+}
+.form-input input[type='text']:focus,.form-input input[type='password']:focus,.form-input input[type='submit']:focus {
+    border-color:#1976D2;
+    outline:none;
+}
+.form-input input[type='submit'] {
+    text-transform: uppercase;
+    background:#1976D2;
+    color:#fff;
+    border:none;
+    font-size: 13px;
+}
+input[type="submit"]:hover {
+    background:#2196F3;
+}
+.form-error {color:#F44;}
+.form-input .form-group a {
+    text-decoration:none;
+    display:inline-block;
+    margin-right:15px;
+    font-size:14px;
+    color:#1976D2;
+}
+.form-input .form-group a:hover {
+    text-decoration:underline;
+    color:#0D47A1;
+}
+a,label.remember,input[type="submit"] {
+    cursor:pointer;
+}
